@@ -18,7 +18,7 @@ jobs:
   
   job-c:
     runs-on: ubuntu-latest
-    depends-on: [job-a, job-b]
+    needs: [job-a, job-b]
     steps:
       - name: "Run job C after A and B"
         run: echo "This is job C running after A and B"
