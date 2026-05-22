@@ -1,0 +1,36 @@
+name: "Structure of folders and files"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 18
+
+jobs:
+  demonstrate-structure:
+    name: "Demonstrate basic structure of folders and files"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Display folder structure"
+        run: |
+          echo "Displaying the structure of folders and files:"
+          tree -L 2
+      
+      - name: "Mandatory elements of workflow"
+        run: |
+          echo "Mandatory elements of a GitHub Actions workflow:"
+          echo "1. name: The name of the workflow."
+          echo "2. on: The event that triggers the workflow."
+          echo "3. jobs: A collection of jobs to be executed."
+          echo "4. steps: A sequence of tasks to be performed within a job."
+      
+      - name: "Variables and Context"
+        run: |
+          echo "Variables and Context in GitHub Actions:"
+          echo "1. Variables: Used to store values that can be reused throughout the workflow."
+          echo "2. Context: Provides information about the workflow run, such as the event that triggered it, the repository, and more."
