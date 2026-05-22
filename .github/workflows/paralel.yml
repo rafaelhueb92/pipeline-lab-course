@@ -1,0 +1,24 @@
+name: "Parallel Jobs Example"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run job A"
+        run: echo "This is job A running in parallel"
+
+  job-b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run job B"
+        run: echo "This is job B running in parallel"
+  
+  job-c:
+    runs-on: ubuntu-latest
+    depends-on: [job-a, job-b]
+    steps:
+      - name: "Run job C after A and B"
+        run: echo "This is job C running after A and B"
